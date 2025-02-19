@@ -1,19 +1,19 @@
 ############### input data #################
 # release data downloaded to disk
-data_root: 
-scene_list_file: 
-rasterout_dir: 
+data_root:  /home/motion/data/scannet_pp/data
+scene_list_file: /home/motion/data/scannet_pp/splits/nvs_sem_train.txt
+rasterout_dir: /home/motion/data/scannet_pp
 visiblity_cache_dir: null
 filter_scenes: []
 exclude_scenes: []
 # image type - iphone or dslr
-image_type: dslr
+image_type: iphone
 undistort_dslr: true
 create_visiblity_cache_only: false
 
 ########## tasks/data to be created ##########
-save_semantic_gt_2d: false
-semantic_classes_file: null
+save_semantic_gt_2d: True
+semantic_classes_file: /home/motion/data/scannet_pp/metadata/semantic_benchmark/top100.txt
 viz_semantic_gt_2d: false
 semantic_2d_palette_path: null
 
@@ -37,8 +37,8 @@ obj_dist_thresh: 999
 bbox_expand_factor: 0.1
 
 ############### output #################
-save_dir_root: 
-save_dir: 
+save_dir_root:  /home/motion/data/scannet_pp
+save_dir: test
 
 ############### dbg #################
 dbg:

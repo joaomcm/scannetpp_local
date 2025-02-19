@@ -52,7 +52,8 @@ def main(cfg : DictConfig) -> None:
 
     if cfg.save_semantic_gt_2d:
         semantic_classes = read_txt_list(cfg.semantic_classes_file)
-        semantic_colors = np.loadtxt(cfg.semantic_2d_palette_path, dtype=np.uint8)
+        if(cfg.viz_semantic_gt_2d):
+            semantic_colors = np.loadtxt(cfg.semantic_2d_palette_path, dtype=np.uint8)
         print(f'Num semantic classes: {len(semantic_classes)}')
 
     # go through scenes
@@ -84,7 +85,8 @@ def main(cfg : DictConfig) -> None:
         # NOTE: should be the same as during rasterization
         colmap_camera, image_list, _, distort_params = get_camera_images_poses(scene, cfg.subsample_factor, cfg.image_type)
         # keep first 4 elements
-        distort_params = distort_params[:4]
+        if(cfg.image_type =='dslr'):
+            distort_params = distort_params[:4]
 
         intrinsic = camera_to_intrinsic(colmap_camera)
         img_height, img_width = colmap_camera.height, colmap_camera.width
@@ -104,6 +106,7 @@ def main(cfg : DictConfig) -> None:
                 image_dir = scene.dslr_resized_dir
             # load the image H, W, 3
             img_path = str(image_dir / image_name)
+            print(img_path)
             img = load_image(img_path) 
 
             rasterout_path = rasterout_dir / scene_id / f'{image_name}.pth'

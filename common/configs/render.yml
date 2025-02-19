@@ -1,5 +1,5 @@
 # folder where the data is downloaded
-data_root: DATA_ROOT
+data_root: /home/motion/data/scannet_pp
 
 # Set True to render depth for iphone frames
 render_iphone: True
@@ -16,4 +16,4 @@ near: 0.05
 far: 20.0
 
 # Output directory for the rendered depth images. If not given, the output will be saved to data folder in data_root
-# output_dir: OUTPUT_DIR
+output_dir: /home/motion/data/scannet_pp/data
