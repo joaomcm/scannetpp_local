@@ -124,7 +124,7 @@ def main(args):
 def render_this_scene(scene_id,cfg,save_rgb = False,render_devices = ['iphone']):
         # for scene_id in tqdm(scene_ids, desc="scene"):
     scene = ScannetppScene_Release(scene_id, data_root=Path(cfg.data_root) / "data")
-    gt_getter = scanentpp_gt_getter('/home/motion/3dsemanticmapping/utils/class_equivalence_revised.xlsx')
+    gt_getter = scanentpp_gt_getter('/home/motion/scannetpp/mapping_to_top_100.xlsx')
     render_engine = renderpy.Render()
     render_engine.setupMesh(str(scene.scan_mesh_path))
     pcd,gt_labels = gt_getter.get_gt_point_cloud_and_labels(scene.scan_anno_json_path,scene.scan_mesh_segs_path,scene.scan_sem_mesh_path)

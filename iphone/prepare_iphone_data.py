@@ -26,7 +26,7 @@ from common.utils.utils import run_command, load_yaml_munch, load_json, read_txt
 
 def extract_rgb(scene):
     scene.iphone_rgb_dir.mkdir(parents=True, exist_ok=True)
-    cmd = f"ffmpeg -i {scene.iphone_video_path} -start_number 0 -q:v 1 {scene.iphone_rgb_dir}/frame_%06d.jpg"
+    cmd = f"""ffmpeg -i {scene.iphone_video_path} -vf "select=not(mod(n\,10)),setpts=N/FRAME_RATE/TB" -vsync vfr -start_number 0 -q:v 1 {scene.iphone_rgb_dir}/frame_%05d0.jpg"""
     run_command(cmd, verbose=True)
 
 def extract_masks(scene):
