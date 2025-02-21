@@ -7,8 +7,8 @@ extract_masks: False
 extract_depth: False
 
 # folder where the data is downloaded
-data_root: /home/motion/data/scannet_pp
+data_root: /scratch/bebg/data/scannet_pp #/home/motion/data/scannet_pp
 
-#splits: [nvs_sem_train, nvs_sem_val]
+splits: [nvs_sem_train, nvs_sem_val]
 
-scene_ids: [fe94fc30cf]
+#scene_ids: [fe94fc30cf]
